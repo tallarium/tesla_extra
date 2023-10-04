@@ -1,6 +1,6 @@
 # TeslaExtra
 
-**TODO: Add description**
+Additional Tesla middleware (plugs) that may be useful in various projects.
 
 ## Installation
 

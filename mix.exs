@@ -25,7 +25,7 @@ defmodule TeslaExtra.MixProject do
     [
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:tesla, "~> 1.5"},
-      {:elixir_uuid, "~> 1.2"},
+      {:uniq, "~> 0.1"},
     ]
   end
 

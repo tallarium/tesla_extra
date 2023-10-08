@@ -7,7 +7,7 @@ defmodule TeslaExtra.WithRequestId do
 
   @impl Tesla.Middleware
   def call(env, next, _opts) do
-    request_id = UUID.uuid4()
+    request_id = Uniq.UUID.uuid4()
     id_header = {"X-Request-ID", request_id}
 
     env =

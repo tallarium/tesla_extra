@@ -23,6 +23,7 @@ defmodule TeslaExtra.MixProject do
 
   defp deps do
     [
+      {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:tesla, "~> 1.5"},
       {:uniq, "~> 0.1"},

@@ -11,16 +11,16 @@ defmodule TeslaExtra.Extend do
   @impl Tesla.Middleware
   def call(env, next, opts)
 
-  def call(env, next, [client: client, modify_middleware: modify_middleware]) do
+  def call(env, next, client: client, modify_middleware: modify_middleware) do
     middleware =
-      recursively_expand_middleware(client.__middleware__ ++ next)
+      recursively_expand_middleware(client.__middleware__() ++ next)
       |> modify_middleware.()
 
     Tesla.run(env, middleware)
   end
 
   def call(env, next, base_client) do
-    middleware = base_client.__middleware__ ++ next
+    middleware = base_client.__middleware__() ++ next
     Tesla.run(env, middleware)
   end
 
@@ -28,7 +28,7 @@ defmodule TeslaExtra.Extend do
     middleware
     |> Enum.flat_map(fn
       {__MODULE__, :call, [base_client]} ->
-        recursively_expand_middleware(base_client.__middleware__)
+        recursively_expand_middleware(base_client.__middleware__())
 
       middleware ->
         [middleware]

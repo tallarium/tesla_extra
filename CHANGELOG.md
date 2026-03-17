@@ -1,5 +1,9 @@
 # Changelog
 
+# 0.3.0
+
+* Support for Elixir 1.17
+
 # 0.2.0
 
 * Retry-After HTTP response header plug (#5)
